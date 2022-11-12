@@ -21,7 +21,6 @@ const isAdmin = async (req:any,res:any,next:any)=>{
             next()
         }
 
-
     } catch(error){
         res.status(500).json({msg:"Unauthorized access"})
     }
