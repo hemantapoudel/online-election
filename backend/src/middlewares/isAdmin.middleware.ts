@@ -26,4 +26,5 @@ const isAdmin = async (req:any,res:any,next:any)=>{
     }
 }
 
+export{}
 module.exports = isAdmin
