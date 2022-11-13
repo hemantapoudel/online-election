@@ -1,15 +1,16 @@
 const express = require("express")
 const app = express()
 require("./config/mongo.config")
+const path = require("path")
 
 const routes = require("./routes/index")
 app.use("",routes)
-
+app.use('/uploads', express.static('public'));
 
 
 app.use((err:any,req:any,res:any,next:any)=>{
     let status_code=err?.status||500;
-    let msg=err?.msg||"Error";
+    let msg=err?.msg||"Errorr";
     res.status(status_code).json(
         {
             result:null,
@@ -17,7 +18,8 @@ app.use((err:any,req:any,res:any,next:any)=>{
             msg:msg
         }
     )
-})   
+}) 
+ 
 
 
 app.listen(3003,"localhost",(err:any)=>{
