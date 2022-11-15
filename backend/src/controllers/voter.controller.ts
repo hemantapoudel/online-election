@@ -23,7 +23,6 @@ const addVoter = async (req:any,res:any,next:any) => {
     } catch(error){
         res.status(500).json({msg:"Error adding voter"})
     }
-
 }
 
 export{}
