@@ -7,7 +7,7 @@ const generateToken = (data:any) =>{
     return token;
 }
 
-const login = async (req:any, res:any, next:any) => {
+const adminLogin = async (req:any, res:any, next:any) => {
     let data = req.body;
     try{
         let user = await Admin.findOne({user_name:data.username})
@@ -42,7 +42,12 @@ const login = async (req:any, res:any, next:any) => {
     }
 }
 
+<<<<<<< HEAD
 
 module.exports = {login}
+=======
+export{}
+module.exports = {adminLogin}
+>>>>>>> ec69da86d2138a3e3d8f63c5a1a32ca83367815f
 
 
