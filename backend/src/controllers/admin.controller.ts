@@ -6,7 +6,7 @@ const addAdmin = async (req:any,res:any,next:any) => {
         let admin_username = await Admin.findOne({user_name:data.user_name});
         if(admin_username){
             next({status:400,msg:"Username Already Registered"})
-        } 
+        }
         else{
             let admin = new Admin(data)
             admin.save()

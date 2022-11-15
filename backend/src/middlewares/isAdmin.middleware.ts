@@ -9,6 +9,7 @@ const isAdmin = async (req:any,res:any,next:any)=>{
     }
     try{
         let data=jwt.verify(token,CONSTANTS.JWT_SECRET);
+        console.log(data)
         let admin = await Admin.findById(data.id)
         if(!token || !data || !admin){
             next({
@@ -20,10 +21,10 @@ const isAdmin = async (req:any,res:any,next:any)=>{
             req.auth_user=admin
             next()
         }
-
+ 
     } catch(error){
-        res.status(500).json({msg:"Unauthorized access"})
+        res.status(501).json({msg:"Unauthorized ACCESS"})
     }
 }
-
 module.exports = isAdmin
+export {}

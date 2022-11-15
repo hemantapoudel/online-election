@@ -3,7 +3,7 @@ const Admin = require("../models/admin.model")
 const CONSTANTS = require("../config/constants")
 
 const generateToken = (data:any) =>{
-    let token=jwt.sign(data,CONSTANTS.JWT_SECRET);
+    let token=jwt.sign(data,CONSTANTS.JWT_SECRET,{expiresIn:'5h'});
     return token;
 }
 
@@ -42,7 +42,7 @@ const login = async (req:any, res:any, next:any) => {
     }
 }
 
-export{}
+
 module.exports = {login}
 
 
