@@ -26,10 +26,7 @@ const isAdmin = async (req:any,res:any,next:any)=>{
         res.status(501).json({msg:"Unauthorized ACCESS"})
     }
 }
-<<<<<<< HEAD
-=======
 
 export{}
->>>>>>> ec69da86d2138a3e3d8f63c5a1a32ca83367815f
 module.exports = isAdmin
 export {}
