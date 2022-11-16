@@ -11,5 +11,13 @@ const addElection = (req:any,res:any,next:any) => {
     }
 }
 
+const listElection = async (req:any,res:any,next:any) => {
+    try{
+        let election = await Election.find({})
+        res.json({msg:"election fetched successfully",result:election})
+    } catch(error){
+        res.status(500).json({msg:"Error listing Election"})
+    }
+}
 export{}
-module.exports = {addElection}
+module.exports = {addElection,listElection}

@@ -15,5 +15,20 @@ const addParty = (req:any,res:any,next:any) => {
 
 }
 
+const listParty = async (req:any, res:any, next:any) => {
+    try{
+        let party = await Party.find({})
+        res.json({msg:"Parties fetched",result:party})
+
+    } catch(error){
+        res.status(500).json({msg:"Error listing party"})
+    }
+}
+
+
+
+
+
+
 export{}
-module.exports = {addParty}
+module.exports = {addParty,listParty}

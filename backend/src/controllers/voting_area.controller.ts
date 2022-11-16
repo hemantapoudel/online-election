@@ -10,9 +10,19 @@ const addVotingArea = (req:any,res:any,next:any) => {
     } catch(error){
         res.status(500).json({msg:"Error adding voting area"})
     }
-
-
 }
 
+const listVotingArea = async (req:any,res:any,next:any) => {
+    try{
+        let area = await VotingArea.find({})
+        res.json({msg:"Voting area fetched",result:area})
+
+    } catch(error){
+        res.status(500).json({msg:"Error listing voting area"})
+    }
+}
+
+
+
 export{}
-module.exports = {addVotingArea}
+module.exports = {addVotingArea,listVotingArea}
