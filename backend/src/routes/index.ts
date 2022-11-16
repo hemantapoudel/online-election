@@ -8,6 +8,7 @@ const election_routes = require("./election.routes")
 const party_routes = require("./party.routes")
 const candidate_routes = require("./candidate.routes")
 const upload_routes = require("./upload.routes")
+const sms_verify_routes = require("./sms_verify.routes")
 
 
 app.use("/",admin_routes)
@@ -17,6 +18,7 @@ app.use("/",election_routes)
 app.use("/",party_routes)
 app.use("/",candidate_routes)
 app.use("/",upload_routes)
+app.use("/",sms_verify_routes)
 
 
 export{}

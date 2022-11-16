@@ -15,7 +15,7 @@ const addVoter = async (req:any,res:any,next:any) => {
         if(voter_idd){
             res.status(401).json({msg:`Voter with voter id ${data.voter_idd} already registered`})
         } else{
-            let voter_details = {voter_id:generateVoterId(),full_name:data.full_name,phone:data.phone,dob:data.dob,gender:data.gender,photo:data.photo}
+            let voter_details = {voter_id:generateVoterId(),full_name:data.full_name,phone:data.phone,dob:data.dob,gender:data.gender,photo:data.photo,voting_area:data.voting_area}
             let voter = new Voter(voter_details)
             voter.save()
             res.json({msg:"Voter Added",result:voter})
@@ -38,7 +38,7 @@ const listVoters = async (req:any,res:any,next:any) => {
 const getVoterById = async (req:any,res:any,next:any) => {
     let data =req.body
     try{
-        let voter = await Voter.findOne({voter_id:req.params.id})
+        let voter = await Voter.findOne({voter_id:req.params.id}).populate('voting_area')
         if(voter['photo']){voter['photo']=CONSTANTS.host + voter['photo']}
         res.json({msg:"Voter fetched successfully",result:voter})
 

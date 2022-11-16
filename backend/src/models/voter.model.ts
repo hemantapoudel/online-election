@@ -18,8 +18,9 @@ const VoterSchema = mongoose.Schema({
     photo : {
         type:String
     },
-    voter_area_code : {
-        type:String
+    voting_area : {
+        type:mongoose.Types.ObjectId,
+        ref:"VotingArea"
     },
 },{
     timestamps:true,
