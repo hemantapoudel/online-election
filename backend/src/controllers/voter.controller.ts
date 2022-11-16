@@ -1,4 +1,5 @@
 const Voter = require("../models/voter.model")
+const CONSTANTS=require("../config/constants")
 
 const generateVoterId = () => {
     return Math.floor(100000 + Math.random() * 900000);
@@ -25,5 +26,26 @@ const addVoter = async (req:any,res:any,next:any) => {
     }
 }
 
+const listVoters = async (req:any,res:any,next:any) => {
+    try{
+       let voters = await Voter.find({})
+       res.json({msg:"Voters fetched successfully",result:voters})
+    } catch(error){
+        res.status(500).json({msg:"Error listing voters"})
+    }
+}
+
+const getVoterById = async (req:any,res:any,next:any) => {
+    let data =req.body
+    try{
+        let voter = await Voter.findOne({voter_id:req.params.id})
+        if(voter['photo']){voter['photo']=CONSTANTS.host + voter['photo']}
+        res.json({msg:"Voter fetched successfully",result:voter})
+
+    } catch(error){
+        res.status(500).json({msg:"Error fetching voter"})
+    }
+}
+
 export{}
-module.exports = {addVoter}
+module.exports = {addVoter,listVoters,getVoterById}
