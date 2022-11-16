@@ -6,7 +6,6 @@ const PartySchema = mongoose.Schema({
     party_symbol : {
         type:String
     }
-
 },{
     timestamps:true,
     autoIndex:true,
@@ -14,5 +13,5 @@ const PartySchema = mongoose.Schema({
 })
 
 const Party = mongoose.model("party",PartySchema)
-module.exports = Candidate
+module.exports = Party
 export{}

@@ -1,8 +1,5 @@
 const mongoose = require("mongoose")
 const VotingAreaSchema = mongoose.Schema({
-    area_id : {
-        type:String
-    },
     area_name : {
         type:String
     },
@@ -10,6 +7,9 @@ const VotingAreaSchema = mongoose.Schema({
         type:String
     },
     area_district : {
+        type:String
+    },
+    total_voters:{
         type:String
     }
 },{
