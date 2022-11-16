@@ -18,6 +18,6 @@ const VotingAreaSchema = mongoose.Schema({
     autoCreate:true
 })
 
-const VotingArea = mongoose.model("Voting Area",VotingAreaSchema)
+const VotingArea = mongoose.model("VotingArea",VotingAreaSchema)
 module.exports = VotingArea
 export{}

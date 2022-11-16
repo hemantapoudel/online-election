@@ -15,14 +15,17 @@ const CandidateSchema = mongoose.Schema({
     candidate_symbol : {
         type:String
     },
-    voting_area_code : {
-        type:String
+    voting_area : {
+        type:mongoose.Types.ObjectId,
+        ref:"VotingArea"
     },
-    election_id : {
-        type:String
+    election : {
+        type:mongoose.Types.ObjectId,
+        ref:"Election"
     },
-    party_id : {
-        type:String
+    party : {
+        type:mongoose.Types.ObjectId,
+        ref:"party"
     },
 
 },{

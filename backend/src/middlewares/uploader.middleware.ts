@@ -35,3 +35,4 @@ const uploader = multer({
 
 
 module.exports = uploader;
+export{}
