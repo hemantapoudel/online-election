@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const PartySchema = mongoose.Schema({
-    full_name : {
+    party_name : {
         type:String
     },
     party_symbol : {
