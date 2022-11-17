@@ -23,11 +23,11 @@ const sendSms = async (req:any,res:any,next:any) => {
             res.status(401).json({msg:"Voter with such voter id doesn't exist"})
         } else{
             
-            await axios.post('https://sms.aakashsms.com/sms/v3/send',{
-            auth_token:CONSTANTS.sms_auth_token,
-            to:voter.phone,
-            text: `Your OTP for Verification is ${otp}. - Election Software`
-            })
+            //await axios.post('https://sms.aakashsms.com/sms/v3/send',{
+            //auth_token:CONSTANTS.sms_auth_token,
+           // to:voter.phone,
+          //  text: `Your OTP for Verification is ${otp}. - Election Software`
+          //  })
             
             res.json({
                 msg:"OTP sent to your registered number, verify to vote"
